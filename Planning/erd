@@ -1,0 +1,19 @@
+User = {
+  username: String,
+  password: String,
+  email: String,
+  brews: [brewList]
+}
+
+Brews = {
+  beanType: String,
+  date: Number,
+  brewMethod: String,
+  massBeans: Number,
+  grindSetting: Number,
+  waterTemp: Number,
+  brewTime: Number,
+  massWater: Number,
+  rating: Number,
+  description: String
+}

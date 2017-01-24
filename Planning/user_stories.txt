@@ -1,0 +1,19 @@
+As a new user I would like to:
+* View a welcome page
+* Register for a new account
+
+As an existing user, I would like to:
+* log in
+* change my login info
+* View all previous personal brews
+* View a single previous brew
+* Edit previous personal brews
+* Delete previous personal brews
+* Log a new brew
+  * Type of bean
+  * Brew method
+  * Mass beans
+  * Grind setting
+  * Water temperature
+  * Brew time
+  * Mass water

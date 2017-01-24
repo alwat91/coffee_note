@@ -1,0 +1,28 @@
+As a new user I would like to:
+* View a welcome page
+* Register for a new account
+* View publicly available brews
+* View intro information
+* View suggested technique for each method
+
+As an existing user, I would like to:
+* log in
+* change my login info
+* View all previous personal brews
+* View a single previous brew
+* Edit previous personal brews
+* Delete previous personal brews
+* Update personal equipment list
+* Change personal unit preferences (metric/imperial)
+* View summary stats
+  * Favorite brew method
+  * Average satisfaction rating
+  * Favorite beans
+* Log a new brew
+  * Type of bean
+  * Brew method
+  * Mass beans
+  * Grind setting
+  * Water temperature
+  * Brew time
+  * Mass water
