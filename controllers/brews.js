@@ -44,4 +44,13 @@ router.post('/new', function(req, res){
     });
 });
 
+// Brews delete
+router.delete('/:id/:brewId', authHelpers.authorize, function(req, res){
+  Brew.findByIdAndRemove(req.params.brewId)
+    .exec(function(err){
+      if(err) {console.log(err);}
+      res.send('Brew deleted');
+    });
+});
+
 module.exports = router;
