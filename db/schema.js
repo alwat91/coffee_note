@@ -45,6 +45,7 @@ BrewSchema.pre('save', function(next) {
 var BrewModel = mongoose.model('Brew', BrewSchema);
 var UserModel = mongoose.model('User', UserSchema);
 
+
 module.exports = {
   Brew: BrewModel,
   User: UserModel
