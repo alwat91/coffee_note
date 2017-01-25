@@ -13,14 +13,25 @@ router.get('/', function(req, res){
     });
 });
 
-// Brews show
-router.get('/:id/:brewId', authHelpers.authorize, function(req, res){
+// Brew update: show
+router.get('/:id/edit/:brewId', authHelpers.authorize, function(req, res){
   Brew.findById(req.params.brewId)
+  .exec(function(err, brew){
+    if(err) {console.log(err);}
+    res.send(brew);
+  });
+});
+
+// Brew update: post
+router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
+  Brew.findByIdAndUpdate(req.params.brewId, req.body)
     .exec(function(err, brew){
       if(err) {console.log(err);}
-      res.send(brew);
+      brew.save();
+      res.redirect(`/brews/${req.params.id}/${req.params.brewId}`);
     });
 });
+
 
 // Brews create
 router.post('/new', function(req, res){
@@ -44,6 +55,7 @@ router.post('/new', function(req, res){
     });
 });
 
+
 // Brews delete
 router.delete('/:id/:brewId', authHelpers.authorize, function(req, res){
   Brew.findByIdAndRemove(req.params.brewId)
@@ -51,6 +63,15 @@ router.delete('/:id/:brewId', authHelpers.authorize, function(req, res){
       if(err) {console.log(err);}
       res.send('Brew deleted');
     });
+});
+
+// Brews show
+router.get('/:id/:brewId', authHelpers.authorize, function(req, res){
+  Brew.findById(req.params.brewId)
+  .exec(function(err, brew){
+    if(err) {console.log(err);}
+    res.send(brew);
+  });
 });
 
 module.exports = router;
