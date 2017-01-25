@@ -13,6 +13,15 @@ router.get('/', function(req, res){
     });
 });
 
+// Brews show
+router.get('/:id/:brewId', authHelpers.authorize, function(req, res){
+  Brew.findById(req.params.brewId)
+    .exec(function(err, brew){
+      if(err) {console.log(err);}
+      res.send(brew);
+    });
+});
+
 // Brews create
 router.post('/new', function(req, res){
   var brew = new Brew({
