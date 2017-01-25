@@ -11,7 +11,7 @@ var sessionsController = require('./controllers/sessions.js');
 
 var app = express();
 
-ADD THE NAME OF YOUR DATABASE
+
 mongoose.connect('mongodb://localhost/coffee');
 
 app.set('view engine', 'hbs')
@@ -30,4 +30,6 @@ app.use(session({
 app.use('/users', usersController);
 app.use('/sessions', sessionsController);
 
-app.listen(4000);
+app.listen(4000, function(){
+  console.log('Now listening');
+});
