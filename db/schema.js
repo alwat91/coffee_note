@@ -6,7 +6,15 @@ mongoose.Promise = global.Promise;
 var BrewSchema = new Schema({
   created_at: Date,
   updated_at: Date,
-  beanType: String
+  beanType: String,
+  brewMethod: String,
+  massBeans: Number,
+  grindSetting: Number,
+  waterTemp: Number,
+  brewTime: Number,
+  massWater: Number,
+  rating: Number,
+  description: String
 });
 
 var UserSchema = new Schema({
@@ -26,8 +34,18 @@ UserSchema.pre('save', function(next) {
   next()
 });
 
+BrewSchema.pre('save', function(next) {
+  now = new Date();
+  this.updated_at = now;
+
+  if (!this.created_at) { this.created_at = now }
+  next()
+});
+
+var BrewModel = mongoose.model('Brew', BrewSchema);
 var UserModel = mongoose.model('User', UserSchema);
 
 module.exports = {
+  Brew: BrewModel,
   User: UserModel
 }

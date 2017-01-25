@@ -6,6 +6,7 @@ var logger = require('morgan');
 var hbs = require('hbs')
 var mongoose = require('mongoose');
 
+
 var usersController = require('./controllers/users.js');
 var sessionsController = require('./controllers/sessions.js');
 
