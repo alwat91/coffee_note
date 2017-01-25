@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user.js');
-var authHelpers = require('../helpers/auth.js')
+var authHelpers = require('../helpers/auth.js');
 
 router.get('/signup', function(req, res){
   res.send('Signup page');

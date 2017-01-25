@@ -19,14 +19,6 @@ router.post('/login', authHelpers.loginUser, function(req, res){
 });
 
 
-// DESTROY USER METHOD: DANGER!
-// router.delete('/', function(req, res){
-//   User.findOneAndRemove({email: req.session.currentUser.email}, function(err){
-//     if(err) {console.log(err);}
-//     res.send(req.session);
-//   });
-// })
-
 // LOGOUT USER
 router.delete('/', function(req, res){
   req.session.destroy(function(){

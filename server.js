@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 
 var usersController = require('./controllers/users.js');
 var sessionsController = require('./controllers/sessions.js');
+var brewsController = require('./controllers/brews.js');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use(session({
 
 app.use('/users', usersController);
 app.use('/sessions', sessionsController);
+app.use('/brews', brewsController);
 
 app.listen(4000, function(){
   console.log('Now listening');
