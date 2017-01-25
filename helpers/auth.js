@@ -9,7 +9,6 @@ function createSecure(req, res, next) {
 }
 
 function loginUser(req, res, next) {
-  // YOU MIGHT CHANGE EMAIL TO USERNAME IF YOU DON'T WANT TO STORE EMAILS
   var email = req.body.email;
   var password = req.body.password;
 
