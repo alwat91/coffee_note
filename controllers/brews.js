@@ -4,14 +4,6 @@ var User = require('../models/user.js');
 var Brew = require('../models/brew.js');
 var authHelpers = require('../helpers/auth.js');
 
-// Brews index
-router.get('/', function(req, res){
-  User.findById( req.session.currentUser._id)
-    .exec(function(err, user){
-      if(err) {console.log(err);}
-      res.send(user.brews);
-    });
-});
 
 // Brew update: show
 router.get('/:id/edit/:brewId', authHelpers.authorize, function(req, res){
@@ -71,6 +63,15 @@ router.get('/:id/:brewId', authHelpers.authorize, function(req, res){
   .exec(function(err, brew){
     if(err) {console.log(err);}
     res.send(brew);
+  });
+});
+
+// Brews index
+router.get('/:id', authHelpers.authorize, function(req, res){
+  User.findById( req.params.id)
+  .exec(function(err, user){
+    if(err) {console.log(err);}
+    res.send(user.brews);
   });
 });
 
