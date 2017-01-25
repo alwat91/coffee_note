@@ -6,7 +6,10 @@ As a new user I would like to:
 * View suggested technique for each method
 
 As an existing user, I would like to:
+* Favorites for each brew (thumbs up/ down)
+ (How to prevent from thumbs upping more than once)
 * log in
+
 * change my login info
 * View all previous personal brews
 * View a single previous brew
@@ -14,6 +17,7 @@ As an existing user, I would like to:
 * Delete previous personal brews
 * Update personal equipment list
 * Change personal unit preferences (metric/imperial)
+  * Implement helper for conversions
 * View summary stats
   * Favorite brew method
   * Average satisfaction rating
