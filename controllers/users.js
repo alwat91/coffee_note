@@ -4,7 +4,7 @@ var User = require('../models/user.js');
 var authHelpers = require('../helpers/auth.js');
 
 router.get('/signup', function(req, res){
-  res.send('Signup page');
+  res.render('users/signup');
 });
 
 router.post('/', authHelpers.createSecure, function(req, res){
