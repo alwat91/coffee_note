@@ -5,6 +5,7 @@ var methodOverride = require('method-override');
 var logger = require('morgan');
 var hbs = require('hbs')
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 
 
 var usersController = require('./controllers/users.js');
