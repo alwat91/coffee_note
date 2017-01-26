@@ -51,8 +51,9 @@ router.post('/new', function(req, res){
 // Brews delete
 router.delete('/:id/:brewId', authHelpers.authorize, function(req, res){
   Brew.findByIdAndRemove(req.params.brewId)
-    .exec(function(err){
+    .exec(function(err, brew){
       if(err) {console.log(err);}
+      brew.save();
       res.send('Brew deleted');
     });
 });
@@ -62,7 +63,11 @@ router.get('/:id/:brewId', authHelpers.authorize, function(req, res){
   Brew.findById(req.params.brewId)
   .exec(function(err, brew){
     if(err) {console.log(err);}
-    res.send(brew);
+    res.render('brews/show', {
+    brew: brew,
+    id: req.params.id,
+    brewId: req.params.brewId
+  });
   });
 });
 

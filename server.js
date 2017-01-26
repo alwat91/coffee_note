@@ -14,7 +14,8 @@ var brewsController = require('./controllers/brews.js');
 var app = express();
 
 
-mongoose.connect('mongodb://localhost/coffee');
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/coffee';
+mongoose.connect(mongoURI);
 
 app.set('view engine', 'hbs')
 
@@ -37,6 +38,6 @@ app.get('/', function(req, res){
   res.render('home/home');
 });
 
-app.listen(4000, function(){
+app.listen(process.env.PORT || 4000, function(){
   console.log('Now listening');
 });

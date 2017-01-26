@@ -1,0 +1,20 @@
+<ul>
+  <li>Created on: {{brew.created_at}}</li>
+  <li>Last updated: {{brew.updated_at}}</li>
+  <li>Bean: {{brew.beanType}}</li>
+  <li>Brew method: {{brew.brewMethod}}</li>
+  <li>Mass beans: {{brew.massBeans}}</li>
+  <li>Grind setting: {{brew.grindSetting}}</li>
+  <li>Water temperature: {{brew.waterTemp}}</li>
+  <li>Brew time: {{brew.brewTime}}</li>
+  <li>Mass water:{{brew.massWater}}</li>
+  <li>Rating: {{brew.rating}}</li>
+  <li>Description: {{brew.description}}</li>
+</ul>
+
+<a href="/brews/{{id}}/edit/{{brewId}}">Edit Brew</a>
+<form class="" action="/brews/{{id}}/{{brewId}}?_method=delete" method="post">
+  <input type="submit" name="" value="Delete brew">
+</form>
+Edit brew
+Delete brew
