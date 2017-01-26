@@ -14,7 +14,7 @@ router.post('/login', authHelpers.loginUser, function(req, res){
   })
     .exec(function(err, user){
       if(err) {console.log(err);}
-      res.redirect('/');
+      res.redirect('/brews/' + req.session.currentUser._id);
     });
 });
 
@@ -22,7 +22,7 @@ router.post('/login', authHelpers.loginUser, function(req, res){
 // LOGOUT USER
 router.delete('/logout', function(req, res){
   req.session.destroy(function(){
-      res.send(req.session);
+      res.redirect('/');
   });
 });
 
