@@ -4,7 +4,7 @@ var User = require('../models/user.js');
 var authHelpers = require('../helpers/auth.js')
 
 router.get('/login', function(req, res) {
-  res.send('login page');
+  res.render('users/login');
 })
 
 router.post('/login', authHelpers.loginUser, function(req, res){
@@ -14,13 +14,13 @@ router.post('/login', authHelpers.loginUser, function(req, res){
   })
     .exec(function(err, user){
       if(err) {console.log(err);}
-      res.send(req.session);
+      res.redirect('/');
     });
 });
 
 
 // LOGOUT USER
-router.delete('/', function(req, res){
+router.delete('/logout', function(req, res){
   req.session.destroy(function(){
       res.send(req.session);
   });

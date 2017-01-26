@@ -33,6 +33,10 @@ app.use('/users', usersController);
 app.use('/sessions', sessionsController);
 app.use('/brews', brewsController);
 
+app.get('/', function(req, res){
+  res.render('home/home');
+});
+
 app.listen(4000, function(){
   console.log('Now listening');
 });
