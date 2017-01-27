@@ -69,14 +69,12 @@ router.delete('/:id/:brewId', authHelpers.authorize, function(req, res){
 // Brews show
 router.get('/:id/:brewId', authHelpers.authorize, function(req, res){
   Brew.findById(req.params.brewId)
-  .exec(function(err, brew){
-    if(err) {console.log(err);}
-    res.render('brews/show', {
-    brew: brew,
-    id: req.params.id,
-    brewId: req.params.brewId
-  });
-  });
+    .exec(function(err, brew){
+      if(err) {console.log(err);}
+      res.render('brews/show', {
+        brew: brew
+      });
+    });
 });
 
 // Brews index
