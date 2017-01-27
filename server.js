@@ -11,6 +11,7 @@ var bcrypt = require('bcrypt');
 var usersController = require('./controllers/users.js');
 var sessionsController = require('./controllers/sessions.js');
 var brewsController = require('./controllers/brews.js');
+var seedsController = require('./controllers/seeds.js');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use(session({
 app.use('/users', usersController);
 app.use('/sessions', sessionsController);
 app.use('/brews', brewsController);
+app.use('/seeds', seedsController);
 
 app.get('/', function(req, res){
   res.render('home/home');
