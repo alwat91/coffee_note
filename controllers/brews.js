@@ -11,7 +11,8 @@ router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
   User.findById(req.params.id)
     .exec(function(err, user){
       if(err) {console.log(err);}
-      var brew =  user.brews.id(req.params.brewId);
+      var brew = user.brews.id(req.params.brewId);
+
       brew.beanType= req.body.beanType;
       brew.brewMethod= req.body.brewMethod;
       brew.massBeans= req.body.massBeans;
@@ -21,7 +22,9 @@ router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
       brew.massWater= req.body.massWater;
       brew.rating= req.body.rating;
       brew.description= req.body.description;
-      brew.save();
+
+      user.save();
+
       res.redirect(`/brews/${req.params.id}/${req.params.brewId}`);
     });
 });
