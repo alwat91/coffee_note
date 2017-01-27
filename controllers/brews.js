@@ -8,11 +8,20 @@ var authHelpers = require('../helpers/auth.js');
 
 // Brew update: put
 router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
-  Brew.findByIdAndUpdate(req.params.brewId, req.body)
-    .exec(function(err, brew){
+  User.findById(req.params.id)
+    .exec(function(err, user){
       if(err) {console.log(err);}
+      var brew =  user.brews.id(req.params.brewId);
+      brew.beanType= req.body.beanType;
+      brew.brewMethod= req.body.brewMethod;
+      brew.massBeans= req.body.massBeans;
+      brew.grindSetting= req.body.grindSetting;
+      brew.waterTemp= req.body.waterTemp;
+      brew.brewTime= req.body.brewTime;
+      brew.massWater= req.body.massWater;
+      brew.rating= req.body.rating;
+      brew.description= req.body.description;
       brew.save();
-      console.log(brew);
       res.redirect(`/brews/${req.params.id}/${req.params.brewId}`);
     });
 });
@@ -50,11 +59,11 @@ router.post('/:id', function(req, res){
 
 // Brew update: show
 router.get('/:id/edit/:brewId', authHelpers.authorize, function(req, res){
-  Brew.findById(req.params.brewId)
-  .exec(function(err, brew){
+  User.findById(req.params.id)
+  .exec(function(err, user){
     if(err) {console.log(err);}
     res.render('brews/edit', {
-      brew: brew,
+      brew: user.brews.id(req.params.brewId),
       id: req.params.id
     });
   });
@@ -62,21 +71,22 @@ router.get('/:id/edit/:brewId', authHelpers.authorize, function(req, res){
 
 // Brews delete
 router.delete('/:id/:brewId', authHelpers.authorize, function(req, res){
-  Brew.findByIdAndRemove(req.params.brewId)
-    .exec(function(err, brew){
+  User.findById(req.params.id)
+    .exec(function(err, user){
       if(err) {console.log(err);}
-      brew.save();
+      user.brews.id(req.params.brewId).remove();
+      user.save();
       res.redirect(`/brews/${req.params.id}`);
     });
 });
 
 // Brews show
 router.get('/:id/:brewId', authHelpers.authorize, function(req, res){
-  Brew.findById(req.params.brewId)
-    .exec(function(err, brew){
+  User.findById(req.params.id)
+    .exec(function(err, user){
       if(err) {console.log(err);}
       res.render('brews/show', {
-        brew: brew,
+        brew: user.brews.id(req.params.brewId),
         id: req.params.id
       });
     });

@@ -46,15 +46,15 @@ var brew2 = new Brew({
 });
 
 
-brew1.save(function(err){
-  if(err) {console.log(err);}
-  console.log("Brew created!");
-});
-
-brew2.save(function(err){
-  if(err) {console.log(err);}
-  console.log("Brew created!");
-});
+// brew1.save(function(err){
+//   if(err) {console.log(err);}
+//   console.log("Brew created!");
+// });
+//
+// brew2.save(function(err){
+//   if(err) {console.log(err);}
+//   console.log("Brew created!");
+// });
 var bob = new User({
   email: 'a@a.com',
   password_digest: bcrypt.hashSync('a', bcrypt.genSaltSync(10)),
