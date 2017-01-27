@@ -1,0 +1,18 @@
+
+
+<form class="" action="/brews/{{id}}/{{brew._id}}?_method=put" method="post">
+  <ul>
+    <li>Created on: <input type="text" name="created_at" value="{{brew.created_at}}"> </li>
+    <li>Last updated: <input type="text" name="updated_at" value="{{brew.updated_at}}"></li>
+    <li>Bean: <input type="text" name="beanType" value="{{brew.beanType}}"></li>
+    <li>Brew method: <input type="text" name="brewMethod" value="{{brew.brewMethod}}"></li>
+    <li>Mass beans: <input type="text" name="massBeans" value="{{brew.massBeans}}"></li>
+    <li>Grind setting: <input type="text" name="grindSetting" value="{{brew.grindSetting}}"></li>
+    <li>Water temperature: <input type="text" name="waterTemp" value="{{brew.waterTemp}}"></li>
+    <li>Brew time: <input type="text" name="brewTime" value="{{brew.brewTime}}"></li>
+    <li>Mass water: <input type="text" name="massWater" value="{{brew.massWater}}"></li>
+    <li>Rating: <input type="text" name="rating" value="{{brew.rating}}"></li>
+    <li>Description: <input type="text" name="description" value="{{brew.description}}"></li>
+  </ul>
+    <input type="submit" name="" value="Submit Changes">
+</form>

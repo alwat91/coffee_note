@@ -6,12 +6,13 @@ var authHelpers = require('../helpers/auth.js');
 
 
 
-// Brew update: post
+// Brew update: put
 router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
   Brew.findByIdAndUpdate(req.params.brewId, req.body)
     .exec(function(err, brew){
       if(err) {console.log(err);}
       brew.save();
+      console.log(brew);
       res.redirect(`/brews/${req.params.id}/${req.params.brewId}`);
     });
 });
@@ -52,7 +53,10 @@ router.get('/:id/edit/:brewId', authHelpers.authorize, function(req, res){
   Brew.findById(req.params.brewId)
   .exec(function(err, brew){
     if(err) {console.log(err);}
-    res.send(brew);
+    res.render('brews/edit', {
+      brew: brew,
+      id: req.params.id
+    });
   });
 });
 
@@ -62,7 +66,7 @@ router.delete('/:id/:brewId', authHelpers.authorize, function(req, res){
     .exec(function(err, brew){
       if(err) {console.log(err);}
       brew.save();
-      res.send('Brew deleted');
+      res.redirect(`/brews/${req.params.id}`);
     });
 });
 
@@ -72,7 +76,8 @@ router.get('/:id/:brewId', authHelpers.authorize, function(req, res){
     .exec(function(err, brew){
       if(err) {console.log(err);}
       res.render('brews/show', {
-        brew: brew
+        brew: brew,
+        id: req.params.id
       });
     });
 });
