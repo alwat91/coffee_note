@@ -9,6 +9,7 @@ mongoose.connect('mongodb://localhost/coffee');
 var Brew = require('../models/brew');
 var User = require('../models/user');
 
+
 Brew.remove({}, function(err){
   console.log(err);
 });
