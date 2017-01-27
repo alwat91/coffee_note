@@ -1,0 +1,8 @@
+{{#each brews}}
+<ul>
+  <li>Created at: <a href="/brews/{{../userId}}/{{_id}}"> {{created_at}}</li></a>
+  <li>Bean type: {{beanType}}</li>
+  <li>Rating: {{rating}}</li>
+</ul>
+{{/each}}
+<button type="button" name="button"><a href="/brews/new/{{userId}}">New brew</a></button>

@@ -5,14 +5,6 @@ var Brew = require('../models/brew.js');
 var authHelpers = require('../helpers/auth.js');
 
 
-// Brew update: show
-router.get('/:id/edit/:brewId', authHelpers.authorize, function(req, res){
-  Brew.findById(req.params.brewId)
-  .exec(function(err, brew){
-    if(err) {console.log(err);}
-    res.send(brew);
-  });
-});
 
 // Brew update: post
 router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
@@ -25,8 +17,15 @@ router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
 });
 
 
+// New brew page
+router.get('/new/:id', function(req, res){
+  res.render('brews/create', {
+    id: req.params.id
+  })
+});
+
 // Brews create
-router.post('/new', function(req, res){
+router.post('/:id', function(req, res){
   var brew = new Brew({
     beanType: req.body.beanType,
     brewMethod: req.body.brewMethod,
@@ -41,12 +40,21 @@ router.post('/new', function(req, res){
   User.findById(req.session.currentUser._id)
     .exec(function(err, user){
       if(err) {console.log(err);}
+      console.log('post hit');
       user.brews.push(brew);
       user.save();
-      res.send(user);
+      res.redirect('/brews/' + req.params.id);
     });
 });
 
+// Brew update: show
+router.get('/:id/edit/:brewId', authHelpers.authorize, function(req, res){
+  Brew.findById(req.params.brewId)
+  .exec(function(err, brew){
+    if(err) {console.log(err);}
+    res.send(brew);
+  });
+});
 
 // Brews delete
 router.delete('/:id/:brewId', authHelpers.authorize, function(req, res){
@@ -76,7 +84,10 @@ router.get('/:id', authHelpers.authorize, function(req, res){
   User.findById( req.params.id)
   .exec(function(err, user){
     if(err) {console.log(err);}
-    res.send(user.brews);
+    res.render('brews/index', {
+      brews: user.brews,
+      userId: req.params.id
+    });
   });
 });
 
