@@ -1,6 +1,12 @@
+html {
+	height: 100%;
+}
+
 body {
   background-image: url('/img/coffee-bg.jpg');
   background-size: cover;
+	height: 100%;
+	font-family: 'Arvo', serif;
 }
 
 nav {
@@ -13,19 +19,19 @@ nav {
 	background: white;
 }
 
-form {
+nav form {
 	display: inline;
 	margin: 0;
 	padding: 0;
 }
 
-input {
+nav input {
 	font-size: 90%;
 	margin: 0;
 	padding: 0;
 }
 
-a, input {
+nav input, nav a  {
 	text-decoration: none;
 	color: black;
 	font-family: 'Arvo', serif;
@@ -36,4 +42,53 @@ a, input {
 
 .logo {
 	font-size: 3em;
+}
+
+main {
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.content {
+	background-color: white;
+	max-width: 75%;
+	height: auto;
+	padding: 10%;
+	border-radius: .5em;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+h1 {
+	font-family: 'Arvo', serif;
+	font-size: 4em;
+	font-weight: bolder;
+}
+
+h3 {
+	font-family: 'Arvo', serif;
+	font-size: 1.5em;
+}
+
+main input {
+	border: 1px solid black;
+	margin: .5em;
+	padding: .25em;
+	background-color: white;
+}
+
+li {
+	margin: .5em;
+}
+
+ul {
+	margin: 1em;
+}
+
+main button {
+	display: inline-block;
+	text-align: center;
 }
