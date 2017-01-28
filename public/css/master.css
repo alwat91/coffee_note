@@ -37,8 +37,3 @@ a, input {
 .logo {
 	font-size: 3em;
 }
-
-.home {
-	display: flex;
-	justify-content: space-around;
-}
