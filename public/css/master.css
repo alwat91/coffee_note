@@ -81,6 +81,7 @@ main input {
 	margin: .5em;
 	padding: .25em;
 	background-color: white;
+	display: block;
 }
 
 li {
