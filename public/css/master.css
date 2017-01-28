@@ -1,3 +1,44 @@
 body {
-  background-color: red;
+  background-image: url('/img/coffee-bg.jpg');
+  background-size: cover;
+}
+
+nav {
+	width: 100%;
+	height: 4.5em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background: white;
+}
+
+form {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	font-size: 90%;
+	margin: 0;
+	padding: 0;
+}
+
+a, input {
+	text-decoration: none;
+	color: black;
+	font-family: 'Arvo', serif;
+	background: none;
+	border: none;
+	margin: 1.5em;
+}
+
+.logo {
+	font-size: 3em;
+}
+
+.home {
+	display: flex;
+	justify-content: space-around;
 }

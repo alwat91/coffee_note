@@ -3,26 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Coffee Note</title>
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
+      <section class="home">
+        <a href="/"><div class="logo">☕️</div>
+          <div class="home"></div>Home</a>
+      </section>
+      <section>
       <a href="/sessions/login">Login</a>
       <a href="/users/signup">Sign up</a>
-      <form class="" action="/" method="get">
-        <input type="submit" name="" value="Home">
-      </form>
-      <form class="" action="sessions/login" method="get">
-        <input type="submit" name="" value="Login">
-      </form>
-      <form class="" action="users/signup" method="get">
-        <input type="submit" name="" value="Sign up">
-      </form>
-      <form class="" action="/sessions/logout?_method=delete" method="post">
-        <input type="submit" name="" value="Log out user">
-      </form>
+        <form class="" action="/sessions/logout?_method=delete" method="post">
+          <input type="submit" name="" value="Log out user">
+        </form>
+      </section>
+
     </nav>
-    {{{body}}}
+    <main>
+      {{{body}}}
+    </main>
   </body>
 </html>
