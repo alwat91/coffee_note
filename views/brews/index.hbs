@@ -1,8 +1,14 @@
-{{#each brews}}
-<ul>
-  <li>Created at: <a href="/brews/{{../userId}}/{{_id}}"> {{created_at}}</li></a>
-  <li>Bean type: {{beanType}}</li>
-  <li>Rating: {{rating}}</li>
-</ul>
-{{/each}}
-<button type="button" name="button"><a href="/brews/new/{{userId}}">New brew</a></button>
+<section class="content">
+  <h3>Your brews:</h3>
+  Click one to view or click new brew to record a new cup
+  {{#each brews}}
+  <ul>
+    <a href="/brews/{{../userId}}/{{_id}}">
+      <li>Created at:  {{created_at}}</li>
+      <li>Bean type: {{beanType}}</li>
+      <li>Rating: {{rating}}</li>
+    </a>
+  </ul>
+  {{/each}}
+  <button type="button" name="button"><a href="/brews/new/{{userId}}">New brew</a></button>
+</section>

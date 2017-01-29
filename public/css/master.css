@@ -7,11 +7,16 @@ body {
   background-size: cover;
 	height: 100%;
 	font-family: 'Arvo', serif;
+	color: black;
 }
 
 a {
 	text-decoration: none;
 	color: inherit;
+}
+
+input, button {
+	cursor: pointer;
 }
 
 nav {
@@ -21,7 +26,7 @@ nav {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	background: white;
+	background: #EEEEEE;
 }
 
 nav form {
@@ -34,6 +39,7 @@ nav input {
 	font-size: 90%;
 	margin: 0;
 	padding: 0;
+	color: inherit;
 }
 
 nav input, nav a  {
@@ -51,17 +57,18 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	color: inherit;
 }
 
 .content {
-	background-color: white;
+	background-color: #EEEEEE;
 	max-width: 75%;
 	height: auto;
 	padding: 10%;
 	border-radius: .5em;
 	display: flex;
-	align-items: center;
 	flex-direction: column;
+	align-items: center;
 	margin: 1em;
 }
 
@@ -76,12 +83,14 @@ h3 {
 	font-size: 1.5em;
 }
 
-main input {
-	border: 1px solid black;
+main input, main button {
+	border: 1px solid;
+	border-color: inherit;
 	margin: .5em;
 	padding: .25em;
 	background-color: white;
 	display: block;
+	color: inherit;
 }
 
 li {
@@ -95,4 +104,12 @@ ul {
 main button {
 	display: inline-block;
 	text-align: center;
+}
+
+input[name=description] {
+	height: 4em;
+}
+
+textarea {
+	color: inherit;
 }

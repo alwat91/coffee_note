@@ -1,11 +1,32 @@
-<form class="" action="/brews/{{id}}" method="post">
-  Bean Type: <input type="text" name="beanType" value="Example Bean">
-  Brew Method: <input type="text" name="brewMethod" value="Chemex">
-  Mass beans: <input type="text" name="massBeans" value="10"> g
-  Grind setting: <input type="text" name="grindSetting" value="5">
-  Water temperature: <input type="text" name="waterTemp" value="205"> ºF
-  Rating: <input type="text" name="rating" value="5">
-  Description: <input type="text" name="description" value="What did you like about this cup? What didn't you like? What do you want to try next time?">
-  <input type="submit" name="" value="Submit">
+<section class="content">
+  <form class="" action="/brews/{{id}}" method="post">
+    <h3>New Brew</h3>
+    Enter the data for your new brew<br>
+    <ul>
+      <li>
+        Bean Type: <input type="text" name="beanType" value="Example Bean">
+      </li>
+      <li>
+        Brew Method: <input type="text" name="brewMethod" value="Chemex">
+      </li>
+      <li>
+        Mass beans: <input type="text" name="massBeans" value="10 g">
+      </li>
+      <li>
+        Grind setting: <input type="text" name="grindSetting" value="5">
+      </li>
+      <li>
+        Water temperature: <input type="text" name="waterTemp" value="205 ºF">
+      </li>
+      <li>
+        Rating: <input type="text" name="rating" value="5">
+      </li>
+      <li>
+        Description:
+        <textarea name="description" rows="8" cols="80">What did you like about this cup? What didn't you like? What do you want to try next time?</textarea>
+      </li>
+    </ul>
+    <input type="submit" name="" value="Submit">
 
-</form>
+  </form>
+</section>

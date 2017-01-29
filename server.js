@@ -6,7 +6,7 @@ var logger = require('morgan');
 var hbs = require('hbs')
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
-
+var favicon = require('serve-favicon');
 
 var usersController = require('./controllers/users.js');
 var sessionsController = require('./controllers/sessions.js');
@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 
 app.use(session({
   secret: "derpderpderpcats",

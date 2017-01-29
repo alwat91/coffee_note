@@ -1,5 +1,5 @@
 <section class="content">
-
+  <h3>Brew summary:</h3>
   <ul>
     <li>Created on: {{brew.created_at}}</li>
     <li>Last updated: {{brew.updated_at}}</li>
@@ -14,7 +14,7 @@
     <li>Description: {{brew.description}}</li>
   </ul>
 
-  <a href="/brews/{{id}}/edit/{{brew._id}}">Edit Brew</a>
+  <button type="button" name="button"><a href="/brews/{{id}}/edit/{{brew._id}}">Edit Brew</a></button>
   <form class="" action="/brews/{{id}}/{{brew._id}}?_method=delete" method="post">
     <input type="submit" name="" value="Delete brew">
   </form>
