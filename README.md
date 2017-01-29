@@ -17,3 +17,14 @@ Coffee node is a simple CRUD application designed with the coffee connisuer in m
 * Utilize flash messaging package for incorrect inputs
 * Public/private brews
 * Implement units
+* Ability to change password and login info
+
+# Reach goals
+* Add intro information and public brews access for unregistered users
+* Add a voting system for public brews
+* Add personal equipment lists for users
+* Add option for unit (metric/imperial) preferences
+* Summary stats 
+  * Favorite brew method
+  * Average satisfaction rating
+  * Favorite beans
