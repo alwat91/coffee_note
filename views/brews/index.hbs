@@ -1,6 +1,10 @@
 <section class="content">
   <h3>Your brews:</h3>
+  {{#if brews}}
   Click one to view or click new brew to record a new cup
+  {{else}}
+  You don't have any brews yet! Click new brew to create one.
+  {{/if}}
   {{#each brews}}
   <ul>
     <a href="/brews/{{../userId}}/{{_id}}">
