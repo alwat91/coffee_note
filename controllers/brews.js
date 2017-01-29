@@ -1,5 +1,7 @@
+// Required packages
 var express = require('express');
 var router = express.Router();
+// Required files
 var User = require('../models/user.js');
 var Brew = require('../models/brew.js');
 var authHelpers = require('../helpers/auth.js');
@@ -11,8 +13,9 @@ router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
   User.findById(req.params.id)
     .exec(function(err, user){
       if(err) {console.log(err);}
-      var brew = user.brews.id(req.params.brewId);
 
+      var brew = user.brews.id(req.params.brewId);
+      // manually set parameters since there is no update() for subdocs
       brew.beanType= req.body.beanType;
       brew.brewMethod= req.body.brewMethod;
       brew.massBeans= req.body.massBeans;
@@ -24,7 +27,7 @@ router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
       brew.description= req.body.description;
 
       user.save();
-
+      // Redirect to brew show page
       res.redirect(`/brews/${req.params.id}/${req.params.brewId}`);
     });
 });
@@ -39,6 +42,7 @@ router.get('/new/:id', function(req, res){
 
 // Brews create
 router.post('/:id', function(req, res){
+  // construct new brew
   var brew = new Brew({
     beanType: req.body.beanType,
     brewMethod: req.body.brewMethod,
@@ -50,12 +54,13 @@ router.post('/:id', function(req, res){
     rating: req.body.rating,
     description: req.body.description
   });
+  // push new brew to user
   User.findById(req.session.currentUser._id)
     .exec(function(err, user){
       if(err) {console.log(err);}
-      console.log('post hit');
       user.brews.push(brew);
       user.save();
+      // Redirect to brews index page
       res.redirect('/brews/' + req.params.id);
     });
 });
@@ -79,6 +84,7 @@ router.delete('/:id/:brewId', authHelpers.authorize, function(req, res){
       if(err) {console.log(err);}
       user.brews.id(req.params.brewId).remove();
       user.save();
+      // Redirect to brews index page
       res.redirect(`/brews/${req.params.id}`);
     });
 });
