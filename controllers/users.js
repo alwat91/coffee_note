@@ -15,7 +15,7 @@ router.post('/', authHelpers.createSecure, function(req, res){
 
      user.save(function(err, user){
        if(err) {console.log(err);}
-       res.send(user);
+       res.redirect('/');
      });
 });
 
