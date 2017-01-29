@@ -28,3 +28,6 @@ Coffee node is a simple CRUD application designed with the coffee connisuer in m
   * Favorite brew method
   * Average satisfaction rating
   * Favorite beans
+  
+# Approach
+When designing this app, I decided that users would have brews stored as embedded documents. Unfortunately, this created unforseen difficulty when it came to updating since there is no mongoose method to update embedded documents. If I had to do it over, I would create brews as their own documents rather than as subdocuments. Other than that, the design is pretty standard for a CRUD application.
