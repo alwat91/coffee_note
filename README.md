@@ -2,7 +2,9 @@
 A minimalist coffee enthusiast app for honing brew methods
 
 [Deployed App](https://coffee-note.herokuapp.com/)
+
 [User Stories](https://github.com/alwat91/coffee_note/blob/master/Planning/user_stories.txt)
+
 [User Stories-Reach](https://github.com/alwat91/coffee_note/blob/master/Planning/user_stories_REACH.txt)
 
 # Overview
