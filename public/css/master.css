@@ -15,7 +15,7 @@ a {
 	color: inherit;
 }
 
-input, button {
+input[type=submit], button {
 	cursor: pointer;
 }
 
