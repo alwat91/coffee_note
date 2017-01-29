@@ -1,17 +1,15 @@
+// Require packages
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 var express = require('express');
 var router = express.Router();
-
+// Require files
 var Brew = require('../models/brew');
 var User = require('../models/user');
-// mongoose.Promise = global.Promise;
-//
-// mongoose.connect('mongodb://localhost/coffee');
-
-router.get('/examples', function(req, res){
-
+// Route for seeding
+router.get('/', function(req, res){
+  // Remove existing data
   Brew.remove({}, function(err){
     console.log(err);
   });
@@ -19,7 +17,7 @@ router.get('/examples', function(req, res){
   User.remove({}, function(err){
     console.log(err);
   });
-
+  // Example brew 1
   var brew1 = new Brew({
     created_at: new Date(),
     updated_at: new Date(),
@@ -33,7 +31,7 @@ router.get('/examples', function(req, res){
     rating: 5,
     description: "This brew was so gud"
   });
-
+  // Example brew 2
   var brew2 = new Brew({
     created_at: new Date(),
     updated_at: new Date(),
@@ -47,20 +45,21 @@ router.get('/examples', function(req, res){
     rating: 4,
     description: "This brew was purty gud"
   });
-
-  var bob = new User({
+  // Example user containing examble brews
+  var exUser = new User({
     email: 'a@a.com',
     password_digest: bcrypt.hashSync('a', bcrypt.genSaltSync(10)),
     created_at: new Date(),
     updated_at: new Date(),
     brews: [brew1, brew2]
   });
-
-  bob.save(function(err){
+  // Save new user
+  exUser.save(function(err){
     if(err) {console.log(err);}
     console.log("User created!");
   });
-  res.send('Seeded');
+  // Send confirmation with option to return home
+  res.send('Seeded <br><a href="/">Return Home</a>');
 });
 
 module.exports = router;
