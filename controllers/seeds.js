@@ -9,14 +9,14 @@ var Brew = require('../models/brew');
 var User = require('../models/user');
 // Route for seeding
 router.get('/', function(req, res){
-  // Remove existing data
-  Brew.remove({}, function(err){
-    console.log(err);
-  });
-
-  User.remove({}, function(err){
-    console.log(err);
-  });
+  // Remove existing data (Removed for deployment)
+  // Brew.remove({}, function(err){
+  //   console.log(err);
+  // });
+  //
+  // User.remove({}, function(err){
+  //   console.log(err);
+  // });
   // Example brew 1
   var brew1 = new Brew({
     created_at: new Date(),

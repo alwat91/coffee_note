@@ -34,14 +34,14 @@ router.put('/:id/:brewId', authHelpers.authorize, function(req, res){
 
 
 // New brew page
-router.get('/new/:id', function(req, res){
+router.get('/new/:id', authHelpers.authorize, function(req, res){
   res.render('brews/create', {
     id: req.params.id
   })
 });
 
 // Brews create
-router.post('/:id', function(req, res){
+router.post('/:id', authHelpers.authorize, function(req, res){
   // construct new brew
   var brew = new Brew({
     beanType: req.body.beanType,
