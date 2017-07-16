@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 // Set up schema for brews
 var BrewSchema = new Schema({
-  created_at: Date,
+  created_at: cde,
   updated_at: Date,
   beanType: String,
   brewMethod: String,
